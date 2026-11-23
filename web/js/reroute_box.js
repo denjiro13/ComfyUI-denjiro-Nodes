@@ -118,6 +118,7 @@ app.registerExtension({
   registerCustomNodes() {
     LiteGraph.registerNodeType(NODE_TYPE, Object.assign(RerouteBox, {
       title: NODE_TITLE,
+      description: "Passes any number of links straight through one box. Connecting the last input adds a new slot. Double-click a slot to rename it.",
     }));
     RerouteBox.category = "utils";
   },

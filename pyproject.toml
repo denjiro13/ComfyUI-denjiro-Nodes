@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-denjiro-nodes"
+description = "Workflow utility nodes for ComfyUI. RerouteBox passes any number of links through one box with renamable slots."
+version = "0.1.0"
+license = { file = "LICENSE" }
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/denjiro13/ComfyUI-denjiro-Nodes"
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-denjiro-Nodes"
+Icon = ""
