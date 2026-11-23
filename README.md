@@ -6,7 +6,7 @@ A collection of custom nodes for ComfyUI.
 
 | Node | Description | Status |
 |---|---|---|
-| Reroute Box | Bundles any number of reroute links into one box | In development |
+| RerouteBox | Passes any number of links straight through one box. Connecting the last input adds a new slot; double-click a slot to rename it. | In development |
 
 ## Installation
 
