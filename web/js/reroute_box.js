@@ -122,4 +122,9 @@ app.registerExtension({
     }));
     RerouteBox.category = "utils";
   },
+  // Frontend-only node defs use the type name as display_name; show the title instead.
+  beforeRegisterVueAppNodeDefs(defs) {
+    const def = defs.find((d) => d.name === NODE_TYPE);
+    if (def) def.display_name = NODE_TITLE;
+  },
 });
