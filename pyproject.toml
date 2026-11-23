@@ -9,6 +9,6 @@ dependencies = []
 Repository = "https://github.com/denjiro13/ComfyUI-denjiro-Nodes"
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "denjiro"
 DisplayName = "ComfyUI-denjiro-Nodes"
 Icon = ""
