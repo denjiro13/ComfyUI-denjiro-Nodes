@@ -4,7 +4,7 @@ import { app } from "../../scripts/app.js";
 // Like the core Reroute it is virtual, so it never reaches the backend prompt.
 
 const NODE_TYPE = "RerouteBox";
-const NODE_TITLE = "🔀 RerouteBox";
+const NODE_TITLE = "🔰 RerouteBox";
 const MIN_WIDTH = 140;
 
 class RerouteBox extends LiteGraph.LGraphNode {
