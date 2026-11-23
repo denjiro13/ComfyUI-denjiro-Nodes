@@ -15,8 +15,38 @@ class RerouteBox extends LiteGraph.LGraphNode {
   }
 
   addPair() {
-    this.addInput("", "*");
     this.addOutput("", "*");
+    this.linkLabel(this.addInput("", "*"));
+  }
+
+  onConfigure() {
+    for (const input of this.inputs) this.linkLabel(input);
+  }
+
+  // The input label is the row's name and the output mirrors it. Nodes 2.0 can
+  // only rename inputs, and writes slot.label directly, so watch it with a setter.
+  linkLabel(input) {
+    if (Object.getOwnPropertyDescriptor(input, "label")?.set) return;
+    let label = input.label;
+    Object.defineProperty(input, "label", {
+      configurable: true,
+      enumerable: true,
+      get: () => label,
+      set: (value) => {
+        label = value;
+        this.syncOutputLabels();
+      },
+    });
+  }
+
+  syncOutputLabels() {
+    this.inputs.forEach((input, i) => {
+      const output = this.outputs[i];
+      if (!output) return;
+      if (input.label) output.label = input.label;
+      else delete output.label;
+    });
+    this.setDirtyCanvas(true, true);
   }
 
   removePair(i) {
@@ -101,12 +131,8 @@ class RerouteBox extends LiteGraph.LGraphNode {
   promptRename(i, e, canvas) {
     const current = this.inputs[i].label ?? this.inputs[i].name;
     canvas.prompt("Name", current, (value) => {
-      const label = value.trim();
       this.graph.beforeChange();
-      for (const slot of [this.inputs[i], this.outputs[i]]) {
-        if (label) slot.label = label;
-        else delete slot.label;
-      }
+      this.inputs[i].label = value.trim() || undefined;
       this.graph.afterChange();
       this.fitSize();
     }, e);
