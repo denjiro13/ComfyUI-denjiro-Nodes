@@ -14,6 +14,8 @@ Utility nodes for ComfyUI. Every node in this pack has 🔰 at the start of its 
 
 A box of reroutes. Each input passes straight through to the output on the same row.
 
+**What it's for**: RerouteBox gathers any links you choose into one place, so you rewire less while building a workflow. Connect upstream nodes to the box and downstream nodes to the box's outputs. When you swap an upstream node, you only reconnect the box's input, and everything after it stays as it is.
+
 - **Grows as you connect**: connecting the last input adds a new empty row. Rows with nothing connected are removed.
 - **Follows the type**: each row takes the type of the link connected to its input (IMAGE, MODEL, ...).
 - **Double-click to rename**: double-click a row's name or slot to rename it. Clear the name to show the type again. The output always shows the same name as its input. With Nodes 2.0, rename on the input side.
@@ -43,6 +45,8 @@ ComfyUI用の便利ノード集です。このパックのノードには、名�
 ### 🔰 RerouteBox
 
 Rerouteをまとめた箱です。各入力は、同じ行の出力にそのまま通ります。
+
+**ねらい**：任意のリンクを1か所にまとめて、ワークフローを作っている間のつなぎ直しを減らすためのものです。前のノードは箱の入力に、後ろのノードは箱の出力につなぎます。前のノードを差し替えるときは箱の入力だけをつなぎ直せばよく、その先はそのまま使えます。
 
 - **つなぐと増える**：いちばん下の入力につなぐと、新しい空の行が増えます。何もつながっていない行は自動で消えます。
 - **型に合わせる**：各行は、入力につないだ型（IMAGE、MODELなど）に合わせて変わります。
