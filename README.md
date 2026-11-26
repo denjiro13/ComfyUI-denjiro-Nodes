@@ -2,8 +2,6 @@
 
 [English](#english) | [日本語](#日本語)
 
-![RerouteBox](docs/images/reroutebox.png)
-
 ---
 
 ## English
@@ -11,6 +9,8 @@
 Utility nodes for ComfyUI. Every node in this pack has 🔰 at the start of its name.
 
 ### 🔰 RerouteBox
+
+![RerouteBox](docs/images/reroutebox.png)
 
 A box of reroutes. Each input passes straight through to the output on the same row.
 
@@ -24,6 +24,8 @@ A box of reroutes. Each input passes straight through to the output on the same 
 Search for "RerouteBox", or find it under `utils`.
 
 ### 🔰 Cargo Load 🚛 / 🔰 Cargo Unload 🚛
+
+![Cargo](docs/images/cargo.png)
 
 A pipe that carries many links as one. Cargo Load gathers links into a single `cargo` link, and Cargo Unload unpacks them on the other end.
 
@@ -72,6 +74,8 @@ ComfyUI用の便利ノード集です。このパックのノードには、名�
 
 ### 🔰 RerouteBox
 
+![RerouteBox](docs/images/reroutebox.png)
+
 Rerouteをまとめた箱です。各入力は、同じ行の出力にそのまま通ります。
 
 **ねらい**：任意のリンクを1か所にまとめて、ワークフローを作っている間のつなぎ直しを減らすためのものです。前のノードは箱の入力に、後ろのノードは箱の出力につなぎます。前のノードを差し替えるときは箱の入力だけをつなぎ直せばよく、その先はそのまま使えます。
@@ -84,6 +88,8 @@ Rerouteをまとめた箱です。各入力は、同じ行の出力にそのま�
 「RerouteBox」で検索するか、`utils` カテゴリから追加できます。
 
 ### 🔰 Cargo Load 🚛 / 🔰 Cargo Unload 🚛
+
+![Cargo](docs/images/cargo.png)
 
 たくさんのリンクを1本にまとめて運ぶpipeです。Cargo Loadでリンクを1本の `cargo` にまとめ、Cargo Unloadで元のリンクに戻します。
 
