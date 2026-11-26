@@ -35,8 +35,6 @@ A pipe that carries many links as one. Cargo Load gathers links into a single `c
 - **Rows stay while in use**: a row is removed only when both its Load input and its Unload outputs are disconnected. When you swap the node feeding the Load, the links after the Unload stay as they are.
 - **No runtime cost**: both nodes exist only in the editor. When the workflow runs, each Unload output is connected straight to what feeds the same row of the Load.
 
-**Hide the cargo link (frontend 1.61 or later)**: click the dot at either end of the `cargo` link and choose the eye icon. Only that link is hidden, like Set/Get nodes. A `CARGO` badge marks both ends, the crosshair icon jumps to the other end, and the hidden state is saved with the workflow.
-
 If an Unload output in use has nothing to carry (no Load connected, or nothing connected to that row), running the workflow shows an error that names the row.
 
 Search for "Cargo", or find them under `utils`.
@@ -84,8 +82,6 @@ Rerouteをまとめた箱です。各入力は、同じ行の出力にそのま�
 - **ダブルクリックで名前変更**：名前はLoad側で変えます。Nodes 2.0では、入力の名前をダブルクリックしてください。
 - **使っている行は残る**：行が消えるのは、Loadの入力とUnloadの出力の両方が外れたときだけです。Loadの前のノードを差し替えるときも、Unloadから先の線はそのまま残ります。
 - **実行時の負担なし**：どちらも画面上だけのノードです。実行時には、Unloadの各出力が、Loadの同じ行につながっているノードへ直接つながります。
-
-**cargoの線を隠す（frontend 1.61以降）**：`cargo` の線の端の〇をクリックし、目のアイコンを選びます。Set/Getのように、その線だけが隠れます。両端には `CARGO` のバッジが付き、照準のアイコンで相手のノードへ移動できます。隠した状態はワークフローと一緒に保存されます。
 
 Unloadの使っている出力に運ぶものがない（Loadにつながっていない、またはLoadのその行に何もつながっていない）まま実行すると、どの行かを示すエラーが出ます。
 
