@@ -40,6 +40,8 @@ A pipe that carries many links as one. Cargo Load gathers links into a single `c
 
 If an Unload output in use has nothing to carry (no Load connected, or nothing connected to that row), running the workflow shows an error that names the row.
 
+**Subgraphs**: Cargo works inside a subgraph if the Load, Unloads and Transfers are all in that same subgraph. A `cargo` link can't cross a subgraph's edge. To pass values into or out of a subgraph, unload them first and connect each link on its own.
+
 Search for "Cargo", or find them under `utils`.
 
 ### 🔰 Cargo Transfer 🚛
@@ -103,6 +105,8 @@ Rerouteをまとめた箱です。各入力は、同じ行の出力にそのま�
 - **実行時の負担なし**：どちらも画面上だけのノードです。実行時には、Unloadの各出力が、Loadの同じ行につながっているノードへ直接つながります。
 
 Unloadの使っている出力に運ぶものがない（Loadにつながっていない、またはLoadのその行に何もつながっていない）まま実行すると、どの行かを示すエラーが出ます。
+
+**サブグラフ**：Load・Unload・Transferをすべて同じサブグラフの中に置けば、サブグラフの中でも使えます。`cargo` の線はサブグラフの境界をまたげません。サブグラフに出し入れする値は、Unloadで取り出してから1本ずつつないでください。
 
 「Cargo」で検索するか、`utils` カテゴリから追加できます。
 
