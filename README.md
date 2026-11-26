@@ -40,6 +40,17 @@ If an Unload output in use has nothing to carry (no Load connected, or nothing c
 
 Search for "Cargo", or find them under `utils`.
 
+### 🔰 Cargo Transfer 🚛
+
+Changes the cargo on the way. Put it between a Cargo Load and a Cargo Unload.
+
+- **Passes everything on**: every row of the cargo appears on the Transfer with the same name, and goes on unchanged.
+- **Replace a row**: connect a link to a row's input, and that row carries the new value from here on.
+- **Add rows**: connect to the last input to add a new row. Rename rows you added here by double-clicking them. Names of rows from the Load can only be changed on the Load.
+- **Only what comes after changes**: Unloads connected after the Transfer see the changes. Unloads connected before it still get the original cargo.
+
+"Remove Cargo 🚛" also works on the Transfer. A row added on the Transfer is removed from the Transfer and the nodes after it; a row from the Load is removed everywhere.
+
 ### Installation
 
 Clone this repository into `ComfyUI/custom_nodes` and restart ComfyUI.
@@ -88,6 +99,17 @@ Rerouteをまとめた箱です。各入力は、同じ行の出力にそのま�
 Unloadの使っている出力に運ぶものがない（Loadにつながっていない、またはLoadのその行に何もつながっていない）まま実行すると、どの行かを示すエラーが出ます。
 
 「Cargo」で検索するか、`utils` カテゴリから追加できます。
+
+### 🔰 Cargo Transfer 🚛
+
+運ぶ途中で荷物を積み替えます。Cargo LoadとCargo Unloadの間に置きます。
+
+- **全部を引き継ぐ**：荷物のすべての行が同じ名前でTransferに並び、そのまま先へ渡ります。
+- **差し替え**：行の入力に線をつなぐと、その行はここから先、新しい中身を運びます。
+- **追加**：いちばん下の入力につなぐと、新しい行が増えます。ここで足した行は、ダブルクリックで名前を変えられます。Loadから来た行の名前は、Loadで変えてください。
+- **変わるのは後ろだけ**：差し替えや追加が届くのは、Transferより後ろのUnloadだけです。Transferより前につないだUnloadには、元の荷物が届きます。
+
+「Remove Cargo 🚛」はTransferでも使えます。Transferで足した行はTransferとその後ろから、Loadから来た行はすべてのノードから消えます。
 
 ### インストール
 
