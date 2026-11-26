@@ -116,6 +116,43 @@ class CargoLoad extends LiteGraph.LGraphNode {
     this.notifyUnloads();
   }
 
+  rowLabel(i) {
+    const input = this.inputs[i];
+    return `${i + 1}: ${input.label || input.name || "(empty)"}`;
+  }
+
+  // Disconnect both ends of the row, then let tidy remove it.
+  removeRow(i) {
+    if (i < 0 || i >= this.rowCount()) return;
+    this.graph.beforeChange();
+    for (const unload of this.unloads()) {
+      if (unload.outputs[i]) unload.disconnectOutput(i);
+    }
+    this.disconnectInput(i);
+    this.tidy();
+    this.graph.afterChange();
+  }
+
+  // Node menu (works in both the classic canvas and Nodes 2.0).
+  removeRowMenu() {
+    const items = [];
+    for (let i = 0; i < this.rowCount(); i++) {
+      items.push({ content: this.rowLabel(i), callback: () => this.removeRow(i) });
+    }
+    if (!items.length) return [];
+    return [{
+      content: "Remove Cargo 🚛",
+      has_submenu: true,
+      callback: (value, options, e, menu) => {
+        new LiteGraph.ContextMenu(items, { event: e, parentMenu: menu, node: this });
+      },
+    }];
+  }
+
+  getExtraMenuOptions() {
+    return this.removeRowMenu();
+  }
+
   setRowType(i, type) {
     const input = this.inputs[i];
     input.type = type;
@@ -207,6 +244,10 @@ class CargoUnload extends LiteGraph.LGraphNode {
 
   onRemoved() {
     this.tidySources();
+  }
+
+  getExtraMenuOptions() {
+    return this.findSource()?.removeRowMenu() ?? [];
   }
 
   tidySources() {

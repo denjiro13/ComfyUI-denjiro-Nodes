@@ -33,6 +33,7 @@ A pipe that carries many links as one. Cargo Load gathers links into a single `c
 - **Unload follows the Load**: the Unload's outputs always match the Load's rows (order, type and name). Reroutes and RerouteBoxes between them are fine.
 - **Double-click to rename**: rename rows on the Load. With Nodes 2.0, double-click the input's name.
 - **Rows stay while in use**: a row is removed only when both its Load input and its Unload outputs are disconnected. When you swap the node feeding the Load, the links after the Unload stay as they are.
+- **Remove a row in one step**: right-click the Load or an Unload, choose "Remove Cargo 🚛", then pick the row. Its links on both nodes are disconnected and the row is removed.
 - **No runtime cost**: both nodes exist only in the editor. When the workflow runs, each Unload output is connected straight to what feeds the same row of the Load.
 
 If an Unload output in use has nothing to carry (no Load connected, or nothing connected to that row), running the workflow shows an error that names the row.
@@ -81,6 +82,7 @@ Rerouteをまとめた箱です。各入力は、同じ行の出力にそのま�
 - **UnloadはLoadに合わせる**：Unloadの出力は、常にLoadの行（並び・型・名前）と同じになります。間にRerouteやRerouteBoxをはさんでも大丈夫です。
 - **ダブルクリックで名前変更**：名前はLoad側で変えます。Nodes 2.0では、入力の名前をダブルクリックしてください。
 - **使っている行は残る**：行が消えるのは、Loadの入力とUnloadの出力の両方が外れたときだけです。Loadの前のノードを差し替えるときも、Unloadから先の線はそのまま残ります。
+- **行をまとめて削除**：LoadかUnloadを右クリックして「Remove Cargo 🚛」を選び、行を選びます。両方のノードの線が外れて、その行が消えます。
 - **実行時の負担なし**：どちらも画面上だけのノードです。実行時には、Unloadの各出力が、Loadの同じ行につながっているノードへ直接つながります。
 
 Unloadの使っている出力に運ぶものがない（Loadにつながっていない、またはLoadのその行に何もつながっていない）まま実行すると、どの行かを示すエラーが出ます。
