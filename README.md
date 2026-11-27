@@ -19,7 +19,7 @@ So I made a flexible box that bundles reroutes together.
 - **Grows as you connect**: connecting a link to an input adds an empty row. Rows with nothing connected are generally removed on their own.
 - **Follows the type**: each row's name, color and type change to match what is connected to its input (IMAGE, MODEL, ...).
 - **Double-click to rename**: double-click a row's name or slot to rename it. Clear the name to show the type again. The output always shows the same name as its input. (With Nodes 2.0, you need to rename on the input side.)
-- **No runtime cost**: like the core Reroute, it exists only in the editor and is removed when the workflow runs.
+- **No runtime cost**: like the core Reroute, it exists only in the editor, so it adds no load when the workflow runs.
 
 Search for "RerouteBox", or find it under `utils`.
 
@@ -36,7 +36,7 @@ A pipe-style node pair that carries many links as one. Cargo Load gathers links 
 - **Double-click to rename**: link names are changed on the Load.
 - **Rows stay while in use**: a row is removed only when both its Load input and its Unload outputs are disconnected. When you swap a Load's input, the links on the Unload's outputs are kept.
 - **Remove a row in one step**: right-click the Load or an Unload, open "Remove Cargo 🚛", and pick the name of the row to remove. Its links on both nodes are disconnected and the row is removed.
-- **No runtime cost**: both nodes exist only in the editor. When the workflow runs, each Unload output is connected straight to what feeds the same row of the Load.
+- **No runtime cost**: both nodes exist only in the editor, so they add no load when the workflow runs.
 
 If an Unload output in use has nothing to carry (no Load connected, or nothing connected to that row), running the workflow shows an error that names the row.
 
@@ -86,7 +86,7 @@ WAN2のCLIP Text EncodeやModel Loaderのように複数（High/Low）のSamplin
 - **つなぐと増える**：リンクをinputにつなぐと、空の行が追加されます。何もつながっていない行は、基本的に自動で消えます。
 - **型に合わせる**：各行の名称・色・型は、inputにつないだ型（IMAGE、MODELなど）に合わせて変わります。
 - **ダブルクリックで名前変更**：行の名前や口をダブルクリックすると、名前を変えられます。空欄にすると型名の表示に戻ります。output側には、常にinput側と同じ名前が表示されます。（Nodes 2.0ではinput側で名前を変える必要があります）
-- **実行時の負担なし**：標準のRerouteと同じく画面上だけのノードで、実行時には取り除かれます。
+- **実行時の負担なし**：標準のRerouteと同じく画面上だけのノードなので、実行時に負荷がかかりません。
 
 「RerouteBox」で検索するか、`utils` カテゴリから追加できます。
 
@@ -103,7 +103,7 @@ WAN2のCLIP Text EncodeやModel Loaderのように複数（High/Low）のSamplin
 - **ダブルクリックで名前変更**：リンクの名称はLoad側で変更します。
 - **使っている行は残る**：行が消えるのは、LoadのinputとUnloadのoutputの両方が外れたときだけです。Loadのinputを差し替えるときも、Unloadのoutputのリンクは維持されます。
 - **行をまとめて削除**：LoadかUnloadを右クリックして「Remove Cargo 🚛」から消したい行の名称を選びます。両方のノードの線が外れて、その行が消えます。
-- **実行時の負担なし**：どちらも画面上だけのノードです。実行時には、Unloadの各outputが、Loadの同じ行につながっているノードへ直接つながります。
+- **実行時の負担なし**：どちらも画面上だけのノードなので、実行時に負荷がかかりません。
 
 Unloadの使っているoutputに運ぶものがない（Loadにつながっていない、またはLoadのその行に何もつながっていない）まま実行すると、どの行かを示すエラーが出ます。
 
